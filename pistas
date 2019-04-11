@@ -1,0 +1,13 @@
+ej1------------------------
+
+arg1 : carpeta
+
+cant1=$(find $1 -name "*.c" | wc -l)
+cant2=$(find $1 -name "*.h" | wc -l)
+
+echo "tenemos $cant1 archivos .c y $cant2 archivos .c"
+
+for x in $(find $1 -typeF -name "*.c" -o find $1 -typeF -name "*.h")
+echo "el fichero $x tiene $(cat $x|wc -l) lineas"  
+echo "el fichero $x tiene $(cat $x|wc -m)"
+done | sort -nr -k 8 
